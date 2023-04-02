@@ -7,9 +7,10 @@
 <body>
 <div id="app">
 
-    <input v-model="username">
-    {{username}}
+    <a v-bind:href="url">点击一下</a>
+    <a :href="url">点击一下</a>
 
+    <input v-model="url">
 </div>
 
 <script src="js/vue.js"></script>
@@ -20,16 +21,10 @@
         el:"#app",
         data(){
             return{
-                username:""
+                username:"",
+                url:"https://www.baidu.com"
             }
         }
-
-        // data:function () {
-        //     return{
-        //         username:""
-        //     }
-        // }
-
     });
 </script>
 </body>
