@@ -7,15 +7,13 @@
 <body>
 <div id="app">
 
-    <div v-if="count == 3">div1</div>
-    <div v-else-if="count == 4">div2</div>
-    <div v-else>div3</div>
+    <div v-for="addr in addrs">
+        {{addr}}<br>
+    </div>
     <hr>
-    <div v-show="count == 3">div v_show</div>
-
-    <br>
-
-    <input v-model="count">
+    <div v-for="(addr, i) in addrs">
+        {{i+1}}--{{addr}}<br>
+    </div>
 
 </div>
 
@@ -29,13 +27,20 @@
             return{
                 username:"",
                 url:"https://www.baidu.com",
-                count:3
+                count:3,
+                addrs:["北京", "上海", "西安"]
             }
         },
         methods:{
             show(){
                 alert("我被点击了。。。。");
             }
+        },
+        // mounted:function () {
+        //
+        // }
+        mounted(){
+            alert("vue加载完成。。。。。")
         }
     });
 </script>
