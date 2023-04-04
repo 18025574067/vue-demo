@@ -18,19 +18,19 @@
 <div id="app">
 
     <!--    搜索表单    -->
-    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+    <el-form :inline="true" :model="brand" class="demo-form-inline">
         <el-form-item label="当前状态">
-            <el-select v-model="formInline.region" placeholder="当前状态">
+            <el-select v-model="brand.status" placeholder="当前状态">
                 <el-option label="禁用" value="0"></el-option>
                 <el-option label="启用" value="1"></el-option>
             </el-select>
         </el-form-item>
 
         <el-form-item label="企业名称">
-            <el-input v-model="formInline.user" placeholder="企业名称"></el-input>
+            <el-input v-model="brand.companyName" placeholder="企业名称"></el-input>
         </el-form-item>
         <el-form-item label="品牌名称">
-            <el-input v-model="formInline.user" placeholder="品牌名称"></el-input>
+            <el-input v-model="brand.brandName" placeholder="品牌名称"></el-input>
         </el-form-item>
 
         <el-form-item>
@@ -94,9 +94,9 @@
     new Vue({
         el: "#app",
         methods: {
-            //
+            // 查询方法
             onSubmit() {
-                console.log('submit!');
+                console.log(this.brand);
             },
             tableRowClassName({row, rowIndex}) {
                 if (rowIndex === 1) {
@@ -115,9 +115,10 @@
         data() {
             return {
                 // 搜索表单数据
-                formInline: {
-                    user: '',
-                    region: ''
+                brand: {
+                    status: '',
+                    brandName: '',
+                    companyName: ''
                 },
                 // 复选框选中数据集合
                 multipleSelection: [],
